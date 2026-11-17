@@ -1,0 +1,109 @@
+---
+import BaseTailwind from '@layouts/BaseTailwind.astro';
+import { type Lang } from '@i18n/index';
+import { getLanguagePaths } from '@utils/i18n-paths';
+
+export const getStaticPaths = getLanguagePaths;
+
+const { lang } = Astro.params as { lang: Lang };
+const es = lang === 'es';
+
+const copy = es
+  ? {
+      title: 'Privacidad | VeloCityLab',
+      description: 'Qué datos recoge este sitio, para qué se usan y qué servicios de terceros carga.',
+      h1: 'Privacidad',
+      updated: 'Última actualización: noviembre de 2026.',
+      sections: [
+        {
+          h: 'Responsable',
+          p: ['VeloCityLab, a cargo de Mauricio González, Córdoba, Argentina. Contacto: el formulario «Conversemos» de este sitio.'],
+        },
+        {
+          h: 'Qué datos recogemos',
+          p: [
+            'Solo los que escribís en el formulario de contacto (nombre, correo y mensaje). Se envían a través de Formspree, que los entrega por correo a VeloCityLab. Los usamos únicamente para responderte y no los compartimos ni los vendemos.',
+            'Este sitio no usa cookies, no tiene analítica ni publicidad y no te registra de ninguna manera.',
+          ],
+        },
+        {
+          h: 'Servicios de terceros que carga el sitio',
+          p: [
+            'Hosting: Cloudflare, que recibe tu dirección IP al servir las páginas.',
+            'Tipografías: Google Fonts, que recibe tu dirección IP al descargar las fuentes.',
+            'Íconos de tecnologías en el Portfolio: jsDelivr (CDN), con el mismo efecto.',
+            'Formulario de contacto: Formspree, solo cuando enviás un mensaje.',
+            'Los enlaces a Calendly, GitHub, LinkedIn y otros sitios te llevan a servicios externos con sus propias políticas.',
+          ],
+        },
+        {
+          h: 'Tus derechos',
+          p: ['Podés pedir acceso, corrección o eliminación de los datos que nos enviaste escribiendo por el formulario de contacto.'],
+        },
+      ],
+    }
+  : {
+      title: 'Privacy | VeloCityLab',
+      description: 'What data this site collects, what it is used for and which third-party services it loads.',
+      h1: 'Privacy',
+      updated: 'Last updated: November 2026.',
+      sections: [
+        {
+          h: 'Data controller',
+          p: ['VeloCityLab, run by Mauricio González, Córdoba, Argentina. Contact: the “Let’s talk” form on this site.'],
+        },
+        {
+          h: 'What data we collect',
+          p: [
+            'Only what you type in the contact form (name, email and message). It is sent through Formspree, which delivers it by email to VeloCityLab. We use it only to reply to you and never share or sell it.',
+            'This site uses no cookies, has no analytics or advertising and does not track you in any way.',
+          ],
+        },
+        {
+          h: 'Third-party services this site loads',
+          p: [
+            'Hosting: Cloudflare, which receives your IP address when serving the pages.',
+            'Typefaces: Google Fonts, which receives your IP address when downloading the fonts.',
+            'Technology icons in the Portfolio: jsDelivr (CDN), with the same effect.',
+            'Contact form: Formspree, only when you send a message.',
+            'Links to Calendly, GitHub, LinkedIn and other sites take you to external services with their own policies.',
+          ],
+        },
+        {
+          h: 'Your rights',
+          p: ['You can ask for access, correction or deletion of the data you sent us by writing through the contact form.'],
+        },
+      ],
+    };
+
+const altLang = es ? 'en' : 'es';
+---
+
+<BaseTailwind title={copy.title} description={copy.description} lang={lang} altHref={`/${altLang}/privacidad/`}>
+  <div class="privacy">
+    <h1>{copy.h1}</h1>
+    <p class="updated">{copy.updated}</p>
+    {copy.sections.map((s) => (
+      <section>
+        <h2>{s.h}</h2>
+        {s.p.map((line) => <p>{line}</p>)}
+      </section>
+    ))}
+  </div>
+</BaseTailwind>
+
+<style>
+  .privacy {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 56px 28px 72px;
+    font-family: Montserrat, system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    color: #082d3a;
+  }
+  h1 { font-size: clamp(1.7rem, 4vw, 2.15rem); font-weight: 700; margin: 0 0 0.4rem; }
+  .updated { color: #5c6785; font-size: 0.85rem; margin: 0 0 2rem; }
+  h2 { font-size: 1.15rem; font-weight: 700; margin: 1.8rem 0 0.5rem; }
+  p { margin: 0 0 0.7rem; }
+</style>

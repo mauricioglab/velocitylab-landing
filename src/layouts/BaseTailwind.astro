@@ -1,0 +1,65 @@
+---
+import SiteHeader from '../components/shared/SiteHeader.astro';
+import SiteFooter from '../components/shared/SiteFooter.astro';
+import SeoHead from '../components/shared/SeoHead.astro';
+import { getSiteNav } from '../data/site-nav';
+import '../styles/brand.css';
+
+interface Props {
+	title?: string;
+	description?: string;
+	lang?: string;
+	// Overrides del shell
+	showHeader?: boolean;
+	showFooter?: boolean;
+	noindex?: boolean;
+	// Ítem marcado como actual en el menú y destino del selector ES/EN
+	current?: string;
+	altHref?: string;
+	// URL canónica (por defecto, la de la página actual)
+	canonical?: string;
+}
+
+const {
+	title = getSiteNav().brand.name,
+	description = getSiteNav().brand.name,
+	lang = "es",
+	showHeader = true,
+	showFooter = true,
+	noindex = false,
+	current,
+	altHref,
+	canonical,
+} = Astro.props;
+
+const baseUrl = import.meta.env.BASE_URL;
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site).toString();
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content={description} />
+		{noindex && <meta name="robots" content="noindex, nofollow" />}
+		<link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`} />
+		<link rel="icon" href={`${baseUrl}favicon.ico`} />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Raleway:wght@300;700&display=swap" rel="stylesheet" />
+		<title>{title}</title>
+		{!noindex && <SeoHead title={title} description={description} lang={lang === 'en' ? 'en' : 'es'} canonical={canonicalUrl} />}
+		<slot name="head" />
+	</head>
+	<body class="min-h-screen flex flex-col p-0 bg-white text-vcl-petroleo font-vclBody font-light">
+		{showHeader && <SiteHeader current={current} lang={lang === 'en' ? 'en' : 'es'} altHref={altHref} />}
+
+		<!-- Main Content -->
+		<main class="flex-1">
+			<slot />
+		</main>
+
+		{showFooter && <SiteFooter lang={lang === 'en' ? 'en' : 'es'} />}
+	</body>
+</html>

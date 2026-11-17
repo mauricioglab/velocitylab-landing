@@ -1,0 +1,11 @@
+/* Tokens de marca VeloCityLab — usados por BaseTailwind.astro. */
+:root {
+  --vcl-petroleo: #082D3A;
+  --vcl-turquesa: #16B6C9;
+  --vcl-cian: #7DE3FF;
+  --vcl-dorado: #D4AF37;
+  --vcl-navy: #0A1E28;
+
+  --vcl-font-head: 'Montserrat', system-ui, sans-serif;
+  --vcl-font-body: 'Montserrat', system-ui, sans-serif;
+}

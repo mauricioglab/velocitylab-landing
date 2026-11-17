@@ -1,0 +1,114 @@
+{
+  "validacion-biometrica": {
+    "title": "Validación Biométrica con IA",
+    "shortDescription": "Reconocimiento facial + prueba de vida con AWS Rekognition, integrado con RENAPER",
+    "profiles": {
+      "engineer": {
+        "description": "Solución completa (backend + frontend) de validación de identidad por reconocimiento facial con prueba de vida, integrada con RENAPER y con trazabilidad inmutable en AWS QLDB.",
+        "highlights": [
+          "500+ verificaciones diarias en producción, 99.8% de precisión",
+          "Backend Node.js/NestJS integrado con RENAPER, frontend Angular",
+          "Trazabilidad inmutable con AWS QLDB"
+        ]
+      }
+    }
+  },
+  "billetera-virtual": {
+    "title": "Core API — Billetera virtual TotalCoin",
+    "shortDescription": "Core API y microservicios para la billetera virtual y pasarela de pagos de TotalCoin",
+    "profiles": {
+      "engineer": {
+        "description": "Desarrollo del Core API e infraestructura de microservicios para la plataforma de billetera virtual y pasarela de pagos de TotalCoin. Flujo de autorización multi-nivel para 4 sub-billeteras comerciales y migración de 3 microservicios heredados a Docker/ECS.",
+        "highlights": [
+          "Módulo de firmantes/aprobadores multi-nivel para 4 sub-billeteras comerciales",
+          "Patrones CQRS, Facade y Mediator sobre DDD",
+          "3 microservicios heredados migrados a Docker/ECS: -40% de deployment"
+        ]
+      }
+    }
+  },
+  "monitoreo-agricola": {
+    "title": "Monitoreo agrícola con Machine Learning",
+    "shortDescription": "App de monitoreo de cultivos con ML y trazabilidad IoT en AWS QLDB (cliente España)",
+    "profiles": {
+      "engineer": {
+        "description": "Aplicación web de monitoreo de cultivos integrando análisis de datos con Python y Google Colab. Sincronización nocturna a AWS QLDB para trazabilidad inmutable de sensores IoT y visualizaciones en tiempo real con Matplotlib/Seaborn.",
+        "highlights": [
+          "Análisis de datos de sensores IoT con Python + Google Colab",
+          "Trazabilidad inmutable de datos con AWS QLDB",
+          "Visualizaciones en tiempo real y alertas automatizadas de cultivos"
+        ]
+      }
+    }
+  },
+  "auditorias-datos": {
+    "title": "Auditorías con análisis de datos",
+    "shortDescription": "Sistema interactivo de análisis de datos para auditoría en el sector eléctrico (ISA CTEEP)",
+    "profiles": {
+      "engineer": {
+        "description": "Para ISA CTEEP, empresa de transmisión de energía eléctrica de Brasil: transformé una revisión manual de Excel en un sistema interactivo con filtros avanzados y priorización visual, con generación automatizada de informes PDF/Excel.",
+        "highlights": [
+          "De revisión manual de Excel a sistema interactivo con filtros avanzados",
+          "Reportes PDF/Excel generados server-side para datasets masivos",
+          "+60% de eficiencia operativa con priorización visual"
+        ]
+      }
+    }
+  },
+  "coca-cola-embonor": {
+    "title": "Sistema web de gastos empresariales",
+    "shortDescription": "Gestión de usuarios/permisos + integración SAP para Coca-Cola Embonor",
+    "profiles": {
+      "engineer": {
+        "description": "Módulos de gestión de usuarios, grupos y permisos para una solución responsive, con integración a SAP para automatizar procesos contables.",
+        "highlights": [
+          "Módulos de usuarios, grupos y permisos (cientos de transacciones diarias)",
+          "Integración con SAP API para automatización contable",
+          "-75% de errores manuales"
+        ]
+      }
+    }
+  },
+  "mundial-2026": {
+    "title": "Modelo predictivo del Mundial 2026",
+    "shortDescription": "Rating Elo, Poisson y simulación Monte Carlo para estimar la probabilidad de cada selección, validado contra el torneo real",
+    "profiles": {
+      "engineer": {
+        "description": "Modelo de fuerza relativa (Elo), goles esperados (Poisson) y simulación Monte Carlo del cuadro completo. Frontera temporal estricta: ninguna predicción usa información posterior al inicio del torneo.",
+        "highlights": [
+          "Acertó las 2 semifinales y ubicó a España 2ª favorita (16%); España fue campeona",
+          "Calibración del Elo validada sobre miles de partidos históricos",
+          "Comparación honesta contra baseline logístico y líneas ingenuas (log-loss)"
+        ]
+      }
+    }
+  },
+  "caso-arquitectura": {
+    "title": "Caso de Estudio: Analista de Sistemas",
+    "shortDescription": "Ciclo completo de análisis de sistemas para un estudio de arquitectura: relevamiento, UML, DFD y 13 sprints Scrum",
+    "profiles": {
+      "engineer": {
+        "description": "Caso de estudio interactivo del ciclo completo de análisis de sistemas: relevamiento, estudio de factibilidad, objetivos y alcance, requerimientos, modelado (UML, DER, DFD, diagrama de estados), diseño de arquitectura y metodología Scrum con 13 sprints documentados.",
+        "highlights": [
+          "14 capítulos navegables: desde el relevamiento inicial hasta la puesta en producción",
+          "Diagramas propios (clases, casos de uso, DER, DFD, estados, despliegue) en vez de capturas estáticas",
+          "Backlog, burndown y trazabilidad completa entre requerimientos y funcionalidades entregadas"
+        ]
+      }
+    }
+  },
+  "abandono-estudiantil": {
+    "title": "Predicción de abandono estudiantil",
+    "shortDescription": "Modelo de riesgo para priorizar tutorías: a quién intervenir primero con un recurso limitado",
+    "profiles": {
+      "engineer": {
+        "description": "Piloto (POC) sobre el dataset UCI (4.424 alumnos). Regresión logística vs. Random Forest, umbral de decisión como dial de negocio y lista priorizada de alumnos.",
+        "highlights": [
+          "Detecta el 65.8% de los abandonos con solo el 1er semestre, a tiempo para intervenir",
+          "Umbral operativo 0.53 optimizado por F1 (precisión 0.88, recall 0.72)",
+          "Recorrido completo CRISP-DM con artefactos de gestión (Sprint 0, ficha DRL, backlog)"
+        ]
+      }
+    }
+  }
+}

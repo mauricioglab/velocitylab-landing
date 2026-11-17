@@ -1,0 +1,81 @@
+import { SITE_CONFIG } from '../data/config';
+import { db } from '../lib/db';
+
+/**
+ * Forma unificada de una disertación (charla dada). Vive en la base de datos
+ * de Supabase (source: 'db'). El origen es siempre la BD; no hay markdown local.
+ */
+export interface Disertacion {
+  id: string;
+  slug: string;
+  title: string;
+  eventDate: Date;
+  eventName: string;
+  author: string;
+  categories: string[];
+  description: string;
+  /** Bullets de "de qué trató la charla", generados por IA y editables. */
+  bullets: string[];
+  /** URL de la portada (imagen extraída de una slide o subida aparte). */
+  coverUrl?: string;
+  /** URL de la foto del certificado. */
+  certificateUrl?: string;
+  /** URLs de las diapositivas (galería). */
+  slidesUrls: string[];
+  /** Fotos adicionales del álbum (se usan si no hay certificado). */
+  galleryUrls: string[];
+  /** Hasta 2 fotos elegidas a mano para mostrar junto a la portada en la tarjeta. */
+  displayPhotos: string[];
+  draft: boolean;
+}
+
+export async function getDisertaciones(): Promise<Disertacion[]> {
+  const items: Disertacion[] = [];
+
+  try {
+    const { data, error } = await db
+      .from('disertaciones')
+      .select(
+        'id, slug, title, event_date, event_name, author, categories, description, bullets, cover_url, certificate_url, slides_urls, gallery_urls, display_photos, draft'
+      )
+      .eq('site', SITE_CONFIG.siteId)
+      .eq('draft', false)
+      .order('event_date', { ascending: false });
+
+    if (!error && data) {
+      for (const row of data) {
+        items.push({
+          id: row.id,
+          slug: row.slug,
+          title: row.title,
+          eventDate: /^\d{4}-\d{2}-\d{2}$/.test(row.event_date) ? new Date(`${row.event_date}T00:00:00`) : new Date(row.event_date),
+          eventName: row.event_name ?? '',
+          author: row.author ?? 'Mauricio González',
+          categories: Array.isArray(row.categories) ? row.categories : [],
+          description: row.description ?? '',
+          bullets: Array.isArray(row.bullets) ? row.bullets : [],
+          coverUrl: row.cover_url ?? undefined,
+          certificateUrl: row.certificate_url ?? undefined,
+          slidesUrls: Array.isArray(row.slides_urls) ? row.slides_urls : [],
+          galleryUrls: Array.isArray(row.gallery_urls) ? row.gallery_urls : [],
+          displayPhotos: Array.isArray(row.display_photos) ? row.display_photos : [],
+          draft: row.draft ?? false,
+        });
+      }
+    } else if (error) {
+      console.warn('No se pudieron cargar las disertaciones de Supabase:', error.message);
+    }
+  } catch (e) {
+    console.warn('No se pudieron cargar las disertaciones de Supabase:', e);
+  }
+
+  return items.sort((a, b) => b.eventDate.getTime() - a.eventDate.getTime());
+}
+
+export function formatEventDate(date: Date, lang: 'es' | 'en' = 'es'): string {
+  return new Intl.DateTimeFormat(lang === 'es' ? 'es-ES' : 'en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  }).format(date);
+}

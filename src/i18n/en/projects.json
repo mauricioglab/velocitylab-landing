@@ -1,0 +1,114 @@
+{
+  "validacion-biometrica": {
+    "title": "AI-Powered Biometric Validation",
+    "shortDescription": "Facial recognition + liveness detection with AWS Rekognition, integrated with RENAPER",
+    "profiles": {
+      "engineer": {
+        "description": "Complete solution (backend + frontend) for identity validation through facial recognition with liveness detection, integrated with RENAPER and with immutable traceability on AWS QLDB.",
+        "highlights": [
+          "500+ daily verifications in production, 99.8% precision",
+          "Node.js/NestJS backend integrated with RENAPER, Angular frontend",
+          "Immutable traceability with AWS QLDB"
+        ]
+      }
+    }
+  },
+  "billetera-virtual": {
+    "title": "Core API — TotalCoin virtual wallet",
+    "shortDescription": "Core API and microservices for TotalCoin's virtual wallet and payment gateway",
+    "profiles": {
+      "engineer": {
+        "description": "Development of the Core API and microservices infrastructure for TotalCoin's virtual wallet and payment gateway. Multi-level authorization flow for 4 commercial sub-wallets, and migration of 3 legacy microservices to Docker/ECS.",
+        "highlights": [
+          "Multi-level signer/approver module for 4 commercial sub-wallets",
+          "CQRS, Facade and Mediator patterns on DDD",
+          "3 legacy microservices migrated to Docker/ECS: -40% deployment time"
+        ]
+      }
+    }
+  },
+  "monitoreo-agricola": {
+    "title": "Agricultural monitoring with Machine Learning",
+    "shortDescription": "Crop monitoring app with ML and IoT traceability on AWS QLDB (Spanish client)",
+    "profiles": {
+      "engineer": {
+        "description": "Web application for crop monitoring integrating data analysis with Python and Google Colab. Nightly sync to AWS QLDB for immutable IoT sensor traceability and real-time visualizations with Matplotlib/Seaborn.",
+        "highlights": [
+          "IoT sensor data analysis with Python + Google Colab",
+          "Immutable data traceability with AWS QLDB",
+          "Real-time visualizations and automated crop alerts"
+        ]
+      }
+    }
+  },
+  "auditorias-datos": {
+    "title": "Audits with data analysis",
+    "shortDescription": "Interactive data analysis system for audits in the power sector (ISA CTEEP)",
+    "profiles": {
+      "engineer": {
+        "description": "For ISA CTEEP, a Brazilian power transmission company: turned a manual Excel review into an interactive system with advanced filters and visual prioritization, with automated PDF/Excel report generation.",
+        "highlights": [
+          "From manual Excel review to an interactive system with advanced filters",
+          "PDF/Excel reports generated server-side for massive datasets",
+          "+60% operational efficiency with visual prioritization"
+        ]
+      }
+    }
+  },
+  "caso-arquitectura": {
+    "title": "Case Study: Systems Analyst",
+    "shortDescription": "Full systems-analysis cycle for an architecture firm: requirements gathering, UML, DFD and 13 Scrum sprints",
+    "profiles": {
+      "engineer": {
+        "description": "Interactive case study covering the full systems-analysis cycle: requirements gathering, feasibility study, objectives and scope, requirements, modeling (UML, ERD, DFD, state diagram), architecture design, and a Scrum methodology with 13 documented sprints.",
+        "highlights": [
+          "14 navigable chapters: from initial requirements gathering to production rollout",
+          "Custom-built diagrams (class, use case, ERD, DFD, state, deployment) instead of static screenshots",
+          "Full backlog, burndown, and traceability between requirements and delivered features"
+        ]
+      }
+    }
+  },
+  "coca-cola-embonor": {
+    "title": "Corporate expense web system",
+    "shortDescription": "User/permission management + SAP integration for Coca-Cola Embonor",
+    "profiles": {
+      "engineer": {
+        "description": "User, group and permission management modules for a responsive solution, with SAP integration to automate accounting processes.",
+        "highlights": [
+          "User, group and permission modules (hundreds of daily transactions)",
+          "SAP API integration for accounting automation",
+          "-75% manual errors"
+        ]
+      }
+    }
+  },
+  "mundial-2026": {
+    "title": "2026 World Cup prediction model",
+    "shortDescription": "Elo rating, Poisson and Monte Carlo simulation to estimate each team's probability, validated against the real tournament",
+    "profiles": {
+      "engineer": {
+        "description": "Relative strength model (Elo), expected goals (Poisson) and full bracket Monte Carlo simulation. Strict time cutoff: no prediction uses information after the tournament started.",
+        "highlights": [
+          "Predicted both semifinals correctly and ranked Spain 2nd favorite (16%); Spain won",
+          "Elo calibration validated on thousands of historical matches",
+          "Honest comparison against logistic baseline and naive lines (log-loss)"
+        ]
+      }
+    }
+  },
+  "abandono-estudiantil": {
+    "title": "Student dropout prediction",
+    "shortDescription": "Risk model to prioritize tutoring: who to intervene with first when resources are limited",
+    "profiles": {
+      "engineer": {
+        "description": "Pilot (POC) on the UCI dataset (4,424 students). Logistic regression vs. Random Forest, decision threshold as a business dial and a prioritized student list.",
+        "highlights": [
+          "Detects 65.8% of dropouts with only the 1st semester, in time to intervene",
+          "Operational threshold 0.53 optimized by F1 (precision 0.88, recall 0.72)",
+          "Full CRISP-DM journey with management artifacts (Sprint 0, DRL sheet, backlog)"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+# build output
+dist/
+# generated types
+.astro/
+.kiro
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# jetbrains setting folder
+.idea/
+
+# markdown files (except README.md and blog posts)
+*.md
+!README.md
+!src/content/blog/*.md
+
+# tool state json en la raíz (no versionar)
+/commit.json
+/events.json
+/latest.json
+/latest2.json
+/master.json
+/new.json
+/perm.json
+/pushruns.json
+/recent.json
+/repo.json
+/runs.json
+/runs391.json
+/runs391b.json
+/suites.json
